@@ -24,7 +24,7 @@ namespace BooksWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Books.OrderBy(o => o.IsAvailable).ToListAsync();
         }
 
         // GET: api/Books/5
